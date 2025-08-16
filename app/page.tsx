@@ -18,9 +18,15 @@ import {
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
+  AWARDS,
 } from './data'
 import { TextEffect } from '@/components/ui/text-effect'
 import SkillSection from '@/components/ui/skills'
+import { Awards } from '@/components/ui/award'
+import { CSSProperties } from 'react'
+import AwardsSection from '@/components/awards-section'
+import { AwardCard } from '@/components/ui/achievement-card'
+import ConnectSection from '@/components/connect'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -43,6 +49,120 @@ const TRANSITION_SECTION = {
 
 type ProjectVideoProps = {
   src: string
+}
+
+const awardsData = [
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/clerk-light.svg"
+        alt="Paddle logo"
+        className="h-8 w-8 object-contain dark:invert"
+      />
+    ),
+    title: '1st Place',
+    description: 'Clerk',
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/procure.svg"
+        alt="Procure"
+        className="h-8 w-8 object-contain"
+      />
+    ),
+    title: "People's Choice",
+    description: 'Procure',
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/microsoft.svg"
+        alt="Microsoft logo"
+        className="h-8 w-8 object-contain"
+      />
+    ),
+    title: 'Supported by',
+    description: 'Microsoft for Startups',
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/producthunt.svg"
+        alt="Product Hunt logo"
+        className="h-8 w-8 object-contain"
+      />
+    ),
+    title: 'Featured on',
+    description: 'Product Hunt',
+  },
+  {
+    icon: (
+      <img
+        src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/replicate.svg"
+        alt="Replicate logo"
+        className="h-8 w-8 object-contain dark:invert"
+      />
+    ),
+    title: 'Sponsorship from',
+    description: 'Replicate',
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/apple.svg"
+        alt="Apple"
+        className="h-8 w-8 object-contain dark:invert"
+      />
+    ),
+    title: '2nd Runner up',
+    description: 'Apple',
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/chrome.svg"
+        alt="crome"
+        className="h-8 w-8 object-contain"
+      />
+    ),
+    title: '2nd Runner up',
+    description: 'Chrome',
+  },
+  {
+    icon: (
+      <img
+        src="https://svgl.app/library/blender.svg"
+        alt="crome"
+        className="h-8 w-8 object-contain"
+      />
+    ),
+    title: 'Top 10 Startup',
+    description: 'Blender',
+  },
+]
+
+// Framer Motion animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
 }
 
 function ProjectVideo({ src }: ProjectVideoProps) {
@@ -126,6 +246,18 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
+  const fadeWidth = 80
+  let maskStyle: CSSProperties | undefined = undefined
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 767px)').matches
+  ) {
+    maskStyle = {
+      maskImage: `linear-gradient(to right, transparent, black ${fadeWidth}px, black calc(100% - ${fadeWidth}px), transparent)`,
+      WebkitMaskImage: `linear-gradient(to right, transparent, black ${fadeWidth}px, black calc(100% - ${fadeWidth}px), transparent)`,
+    }
+  }
+
   return (
     <motion.main
       className="space-y-24"
@@ -161,6 +293,36 @@ export default function Personal() {
       >
         <SkillSection />
       </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <AwardsSection />
+      </motion.section>
+
+      {/* <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <motion.div
+          className="flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible"
+          role="list"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {awardsData.map((award, index) => (
+            <motion.div key={index} variants={itemVariants} role="listitem">
+              <AwardCard
+                icon={award.icon}
+                title={award.title}
+                description={award.description}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section> */}
 
       <motion.section
         variants={VARIANTS_SECTION}
@@ -269,20 +431,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Connect</h3>
-        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{' '}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-        </p>
-        <div className="flex items-center justify-start space-x-3">
-          {SOCIAL_LINKS.map((link) => (
-            <MagneticSocialLink key={link.label} link={link.link}>
-              {link.label}
-            </MagneticSocialLink>
-          ))}
-        </div>
+        <ConnectSection />
       </motion.section>
     </motion.main>
   )

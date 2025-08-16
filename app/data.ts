@@ -1,3 +1,89 @@
+type Award = {
+  title: string
+  subtitle: string
+  recipient: string
+  date: string
+  level: 'gold' | 'bronze' | 'silver' | 'platinum' | undefined
+  className?: string
+}
+
+export const AWARDS: Award[] = [
+  {
+    title: 'WINNER',
+    subtitle: "DEAN'S LIST INDONESIA",
+    recipient: 'FIRST Tech Challenge INTO THE DEEP 24/25',
+    date: 'June 2025',
+    level: 'gold',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+  {
+    title: 'WINNER',
+    subtitle: 'INSPIRE AWARD\n TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge CENTERSTAGE 23/24',
+    date: 'June 2025',
+    level: 'gold',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+
+  {
+    title: 'WINNER',
+    subtitle: 'WINNER ALLIANCE TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge INTO THE DEEP 24/25',
+    date: 'December 2024',
+    level: 'gold',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+  {
+    title: 'WINNER',
+    subtitle: 'WINNER ALLIANCE TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge CENTERSTAGE 23/24',
+    date: 'January 2024',
+    level: 'gold',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+
+  {
+    title: '2nd Place',
+    subtitle: 'THINK AWARD TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge CENTERSTAGE 23/24',
+    date: 'January 2024',
+    level: 'silver',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+
+  {
+    title: '2nd Place',
+    subtitle: 'CONNECT AWARD TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge CENTERSTAGE 23/24',
+    date: 'January 2024',
+    level: 'silver',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+  {
+    title: '2nd Place',
+    subtitle: 'CONTROL AWARD TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge CENTERSTAGE 23/24',
+    date: 'January 2024',
+    level: 'silver',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+  {
+    title: '2nd Place',
+    subtitle: 'MOTIVATE AWARD TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge CENTERSTAGE 23/24',
+    date: 'January 2024',
+    level: 'silver',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+  {
+    title: '3rd Place',
+    subtitle: 'CONTROL AWARD TEAM #19829 R2045',
+    recipient: 'FIRST Tech Challenge INTO THE DEEP 24/25',
+    date: 'December 2024',
+    level: 'bronze',
+    className: 'max-w-[220px] min-w-[220px] md:max-w-none md:min-w-0',
+  },
+]
 type Project = {
   name: string
   description: string
@@ -49,7 +135,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'IFR Foundation Website',
     description:
-      'A long term 2 years project including community service mentoring, outreach, and competitions.',
+      ' Official Program Delivery Partner of FIRST Robotics; A non profit organization dedicated to providing educational resources and support for students in Indonesia. ',
     link: 'https://ifrfoundation.org/',
     video:
       'https://res.cloudinary.com/dzbrvfphg/video/upload/v1754882643/IFR-Website-Demo-2_annfg5.mov',
@@ -59,7 +145,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'IntiServer Website',
     description:
-      'A long term 2 years project including community service mentoring, outreach, and competitions.',
+      'Corporate website for IntiServer, a leading Cloud service provider in Indonesia.',
     link: 'https://intiserver.com/',
     video:
       'https://res.cloudinary.com/dzbrvfphg/video/upload/v1754882848/IntiServerWebsite_xi0j4s.mp4',

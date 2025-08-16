@@ -158,7 +158,7 @@ export function Awards({
     const LaurelWreath = () => (
       <svg
         className={cn(
-          'fill-primary absolute top-0 h-7/8 w-full -translate-y-0',
+          'fill-primary absolute top-1/2 h-full w-full -translate-y-1/2',
         )}
         width="892.77"
         height="688.08"
@@ -172,16 +172,16 @@ export function Awards({
       <div
         className={cn(
           'relative z-0',
-          'flex flex-col items-center justify-between px-6',
+          'flex flex-col items-center justify-center p-6',
           'overflow-hidden',
           className,
         )}
       >
         <LaurelWreath />
-        <div className="z-10 px-8 pt-14 text-center">
+        <div className="z-10 px-8 text-center">
           <div
             className={cn(
-              'text-md mb-2 inline-block rounded-md px-4 py-1 tracking-wider text-white',
+              'mt-6 mb-2 inline-block rounded-md px-4 py-1 tracking-wider text-white',
               `bg-gradient-to-r ${levelColors[level]}`,
             )}
           >
@@ -189,20 +189,17 @@ export function Awards({
           </div>
 
           {/* Main Title */}
-          <h1 className={cn('text-2xl font-black tracking-tight')}>{title}</h1>
+          <h1 className={cn('text-4xl font-black tracking-tight')}>{title}</h1>
 
           {/* Decorative Line */}
-          <div className="mx-auto my-3 h-[1px] w-30 bg-black"></div>
+          <div className="bg-primary mx-auto my-3 h-[1px] w-40"></div>
 
           {/* Subtitle */}
-          <h2 className={cn('mb-4 w-60 px-10 text-lg font-light')}>
-            {subtitle}
-          </h2>
-        </div>
-        <div className="flex flex-col items-center justify-center">
+          <h2 className={cn('mb-4 w-60 text-xl font-light')}>{subtitle}</h2>
+
           {/* Recipient */}
           {recipient && (
-            <p className={cn('text-primary/60 mt-8 italic')}>{recipient}</p>
+            <p className={cn('text-primary/60 italic')}>{recipient}</p>
           )}
 
           {/* Date */}
