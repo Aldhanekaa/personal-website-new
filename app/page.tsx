@@ -27,6 +27,7 @@ import { CSSProperties } from 'react'
 import AwardsSection from '@/components/awards-section'
 import { AwardCard } from '@/components/ui/achievement-card'
 import ConnectSection from '@/components/connect'
+import { Button } from '@/components/ui/button'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -260,7 +261,7 @@ export default function Personal() {
 
   return (
     <motion.main
-      className="space-y-24"
+      className="space-y-20"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
@@ -285,6 +286,14 @@ export default function Personal() {
             that can solve real-world problems and provide jobs for people in
             need.
           </p>
+          <Link href={'/resume.pdf'}>
+            <Button
+              variant={'default'}
+              className="hover:bg-background mt-6 cursor-pointer border-2 hover:border-black hover:text-black"
+            >
+              View my Resume
+            </Button>
+          </Link>
         </div>
       </motion.section>
       <motion.section
